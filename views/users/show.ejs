@@ -1,0 +1,22 @@
+<%- include ('../partials/header') %>
+<div class="row">
+  <div class="col-md-4">
+      <h1><%=user.username + " "  + user.lastname%></h1>
+    <div class="thumbnail">
+      <img src="<%= user.avatar %>" alt="user profile image">
+      <div class="caption">
+        <a href="mailto:<%=user.email%>"><%=user.email%></a>
+      </div>
+    </div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div class="col-md-8">
+    <h3><%=user.username%>'s campgrounds</h3>
+    <ul>
+      <%campgrounds.forEach((campground)=>{ %>
+        <li><a href="/campgrounds/<%= campground.id%>"><%=campground.name%></a></li>
+      <% }); %>
+    </ul>
+  </div>
+</div>
+<%- include ('../partials/footer') %>
