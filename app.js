@@ -9,7 +9,7 @@ const passport = require('passport'),
       localstrategy = require('passport-local');
 const user = require("./models/user");
 const methodoverride = require('method-override');
-mongoose.connect("mongodb://localhost/campingground", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://abhiseksinha23:passcode23@cluster0-m7vhm.mongodb.net/cluster0?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(partials());
@@ -57,6 +57,6 @@ app.use("/campgrounds/:id/comments", commentroutes);
 app.get("/contact",(req,res)=>{
 	res.render("contact");
 });
-app.listen(3000, () =>{
-  console.log("Camping Started");
+app.listen(process.env.port || 3000, () =>{
+  console.log("Camping Started....");
 });
